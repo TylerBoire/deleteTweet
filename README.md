@@ -10,8 +10,14 @@ You will need to perminantly turn off DebugMode or specify in the CLI options.
 Usage:
 
 python deleteTweet.py [Options]
+
 "-t", "--tweets", help="Delete the Tweets", action='store_true'
+
 "-l", "--likes", help="Delete your likes", action='store_true'
+
 "-d", "--DM", help="Delete da DMs", action='store_true'
+
 "-k", "--keep", help="How many days to keep. Default 2", default=2
+
 "-b" "--debug", help="Turn off debug mode", action='store_false'
+

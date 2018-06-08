@@ -5,7 +5,7 @@ This is a tool used to delete past Tweets, Likes, and DMs.
 You will have to create an API key from https://apps.twitter.com/ with Direct Messages permisions
 if that is a feature you want to use.
 
-You will need to perminantly turn off DebugMode or specify in the CLI options. 
+You will need to permanently turn off DebugMode or specify in the CLI options. 
 
 Usage:
 

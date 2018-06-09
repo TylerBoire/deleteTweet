@@ -4,6 +4,7 @@
 import argparse
 import tweepy
 from datetime import datetime, timedelta
+from sys import version_info
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-t", "--tweets", help="Delete the Tweets", action='store_true')
@@ -39,23 +40,23 @@ def deleteStatus(api):
     for status in tweepy.Cursor(api.user_timeline).items():
         if status.id and status.created_at < cutoff_date:
             if debugMode and args.debug:
-                print status.created_at
+                print(status.created_at)
             else:
-		api.destroy_status(status.id)
+                api.destroy_status(status.id)
 
 def deleteLikes(api):	
     for liked in tweepy.Cursor(api.favorites).items():
         if liked.created_at < cutoff_date:
             if debugMode and args.debug:
-                print liked.created_at
+                print(liked.created_at)
             else:
-		api.destroy_favorite(liked.id_str)
+                api.destroy_favorite(liked.id_str)
     
 def deleteDM(api):
     for DM in tweepy.Cursor(api.sent_direct_messages).items():
         if DM.created_at < cutoff_date:
             if debugMode and args.debug:
-                print DM.created_at
+                print(DM.created_at)
             else:
                 api.destroy_direct_message(DM.id)
 
@@ -63,7 +64,7 @@ if __name__ == "__main__":
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_key, access_secret)
     api = tweepy.API(auth)
-    print "Authenticated as: %s" % api.me().screen_name
+    print("Authenticated as: %s" % api.me().screen_name)
     if args.tweets:
         deleteStatus(api)
     if args.likes:

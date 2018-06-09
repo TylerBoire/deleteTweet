@@ -4,7 +4,6 @@
 import argparse
 import tweepy
 from datetime import datetime, timedelta
-from sys import version_info
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-t", "--tweets", help="Delete the Tweets", action='store_true')
